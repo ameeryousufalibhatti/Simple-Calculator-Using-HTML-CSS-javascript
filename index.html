@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <style>
+        *{
+            overflow: hidden;
+        }
+        .bd{
+            width: 500px;
+            margin: auto;
+            background-color: rgb(243, 159, 159);
+            padding: 20px;
+            text-align: center;
+        }
+        input,label{
+            clear: both;
+            float: left;
+            width: 500px;
+            margin: 3px;
+        }
+        button{
+            background-color: #7b7b7b;
+            color: white;
+            float: left;
+            padding: 10px;
+            border-radius: 7px;
+            margin: 20px;
+        }
+        button:hover{
+            color: white;
+            background-color: black;
+        }
+        #btn1{
+            margin-left: 165px;
+        }
+        input{
+            width: 93%;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        label{
+            font-style: italic; 
+        }
+        .res{
+            border-radius: 5px;
+            text-align: center;
+        }
+        h1{
+            font-family: cursive;
+        }
+    </style>
+    <script>
+        function cal(){
+            var a = parseFloat(document.getElementById("num1").value);
+            var b = parseFloat(document.getElementById("num2").value);
+            if(isNaN(a) || isNaN(b)){
+                document.getElementById("result").innerText = "Please enter valid numbers.";
+            }
+            else{
+                var sum = a + b;
+                document.getElementById("sum").innerHTML = "<b>Sum of A & B: </b>" + sum;
+
+                var sub = a - b;
+                document.getElementById("sub").innerHTML = "<b>Difference of A & B: </b>" + sub;
+
+                var mul = a * b;
+                document.getElementById("mul").innerHTML = "<b>Product of A & B: </b>" + mul;
+
+                var div = a / b;
+                document.getElementById("div").innerHTML = "<b>Division of A & B: </b>" + div;
+            }
+        }
+        function res(){
+            location.reload();
+        }
+</script>
+</head>
+<body>
+    <div class="bd">
+        <div class="m">
+            <h1>Calculator by Yousuf Bhatti</h1>
+                <label for="num1">Enter first number</label>
+                <input type="text" id="num1" name="num1">
+                <label for="num2">Enter second number</label>
+                <input type="text" id="num2" name="num2">
+                    <button value="submit" id="btn1" onclick="cal()">Submit</button>
+                    <button value="reset" id="btn2" onclick="res()">Reset</button>
+        </div>
+        <div class="res">
+            <p id="sum"></p>
+            <p id="sub"></p>
+            <p id="mul"></p>
+            <p id="div"></p>
+        </div>
+    </div>
+</body>
+</html>
